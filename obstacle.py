@@ -1,22 +1,27 @@
 import pygame as pg
-import random  # เพิ่มการสุ่มความสูง
-
+from random import randint  # เพิ่มการสุ่มความสูง
 
 class OB:
-    def __init__(self, move_speed, start_x, start_y):
-        self.img_down = pg.transform.scale_by(pg.image.load("game-Project/เสา.png").convert_alpha(), 0.4)
-        self.rect_down = self.img_down.get_rect()
+    def __init__(self, scale_factor, move_speed, pipe_spacing=1500):
+        # โหลดภาพเสาด้านล่างและปรับขนาดตามขนาดที่ต้องการ (width, height)
+        self.img_down = pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/เสา.png").convert_alpha(), scale_factor)
+        # ระยะห่างระหว่างเสาด้านล่างแต่ละอัน
 
-        self.width = 1200
-        self.height = 555
+        self.pipe_spacing = pipe_spacing
+
+        # กำหนด rect ของเสาด้านล่าง
+        self.rect_down = self.img_down.get_rect()
         
-        self.rect_down.x = start_x  # เริ่มต้นที่ขอบขวาของหน้าจอ
-        self.rect_down.y = start_y  # ตั้งให้ใกล้ขอบล่างของหน้าจอ
+        # กำหนดตำแหน่ง y ของเสาด้านล่างให้อยู่ในช่วงที่กำหนด
+        self.rect_down.y = randint(295, 455)  # ตำแหน่ง y ของเสาด้านล่างในช่วง 285 ถึง 460
+        # ตำแหน่ง x ของเสาด้านล่างเริ่มต้น
+        self.rect_down.x = pipe_spacing  
         
         self.move_speed = move_speed
 
     def draw_pipe(self, win):
         win.blit(self.img_down, self.rect_down)  # วาดเสาลงบนหน้าจอ
-    
+
     def update(self, dt):
-        self.rect_down.x -= int(self.move_speed * dt * 50)  # เคลื่อนที่เสาไปทางซ้าย
+        # Update the position of the bottom pipe
+        self.rect_down.x -= int(self.move_speed * dt)

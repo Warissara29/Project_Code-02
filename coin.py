@@ -1,10 +1,34 @@
 import pygame as pg
+from random import randint  # เพิ่มการสุ่มความสูง
 
-# ไอเท็มคลาส
-class coin:
-    def __init__(self, x, y):
-        self.image = pg.transform.scale(pg.image.load("game-Project/เหรียญ.png").convert_alpha(), (40, 40))  # โหลดและปรับขนาดไอเท็ม
-        self.rect = self.image.get_rect(topleft=(x, y))  # ตั้งค่า rect ตามตำแหน่ง X และ Y
+class Coin:
+    def __init__(self, scale_factor, move_speed, pipe_spacing=1500):
+        # โหลดภาพเหรียญและปรับขนาดตามขนาดที่ต้องการ (width, height)
+        self.img = pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/เหรียญ.png").convert_alpha(), scale_factor)
+        
+        self.pipe_spacing = pipe_spacing  # ระยะห่างระหว่างเหรียญ
 
-    def draw(self, win):
-        win.blit(self.image, self.rect.topleft)  # ใช้ rect.topleft เป็นตำแหน่งในการวาด
+        # กำหนด rect ของเหรียญ
+        self.rect = self.img.get_rect()
+        
+        # กำหนดตำแหน่ง y ของเหรียญให้อยู่ในช่วงที่กำหนด
+        self.rect.y = randint(285, 360)  # ตำแหน่ง y ของเหรียญในช่วง 285 ถึง 360
+        
+        # ตำแหน่ง x ของเหรียญเริ่มต้น
+        self.rect.x = pipe_spacing  
+        
+        self.move_speed = move_speed  # ความเร็วในการเคลื่อนที่ของเหรียญ
+
+    def draw_coin(self, win):
+        # วาดเหรียญลงบนหน้าจอ
+        win.blit(self.img, self.rect)
+
+    def update(self, dt):
+        # อัปเดตตำแหน่งของเหรียญ (เลื่อนไปทางซ้าย)
+        self.rect.x -= int(self.move_speed * dt)
+
+# โค้ดส่วนที่เช็คการชนระหว่างตัวละครกับเหรียญ
+def check_collision_with_coin(character, coin):
+    if character.rect.colliderect(coin.rect):
+        return True  # ถ้าเกิดการชน แสดงว่าเก็บเหรียญได้
+    return False

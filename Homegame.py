@@ -5,6 +5,8 @@ from choose_character import ChooseCharacter  # นำเข้าคลาส C
 
 pg.init()
 
+# Music by Lasertie from Pixabay  ref : https://pixabay.com/music/search/capybara/
+
 class Homegame:
     def __init__(self):
         # ตั้งค่าหน้าจอ
@@ -14,14 +16,19 @@ class Homegame:
         self.win = pg.display.set_mode((self.width, self.height))
         pg.display.set_caption("Capybara Journey")  # ชื่อหน้าต่างเกม
 
-        self.ground_img = pg.transform.scale(pg.image.load("game-Project/หน้าหลักเกม/หน้าหลักเกม.png").convert(), (self.width, self.height))
-        self.buttom_start = pg.image.load("game-Project/หน้าหลักเกม/เริ่มเกม.png")
-        self.buttom_out = pg.image.load("game-Project/หน้าหลักเกม/ออกเกม.png")
+        self.ground_img = pg.transform.scale(pg.image.load("./homepage/หน้าหลักเกม.png").convert(), (self.width, self.height))
+        self.buttom_start = pg.image.load("homepage/เริ่มเกม.png")
+        self.buttom_out = pg.image.load("homepage/ออกเกม.png")
 
         self.buttom_start = pg.transform.scale(self.buttom_start, (180, 120))
         self.buttom_out = pg.transform.scale(self.buttom_out, (120, 90))
 
         self.choose_chracter = ChooseCharacter()
+
+        # ตั้งค่าเพลงพื้นหลัง
+        pg.mixer.music.load("./รูปภาพและไฟล์ประกอบ/Cypybara.mp3")  # ระบุเส้นทางไปยังไฟล์เพลง
+        pg.mixer.music.set_volume(0.5)  # ปรับระดับเสียง (ค่าระหว่าง 0.0 ถึง 1.0)
+        pg.mixer.music.play(-1)  # เล่นเพลงซ้ำ (-1 ทำให้เพลงเล่นวน)
 
         # เริ่ม loop ของเกม
         self.gameLoop()
@@ -57,6 +64,7 @@ class Homegame:
 
         # อัปเดตหน้าจอ
         pg.display.update()
-
-# เริ่มต้นเกม
-start = Homegame()
+    
+# เริ่มต้นเกมเมื่อรันไฟล์นี้โดยตรง
+if __name__ == "__main__":
+    start = Homegame()
