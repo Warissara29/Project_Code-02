@@ -25,9 +25,9 @@ class Game:
         pg.display.set_caption("Capybara Journey")
 
         # โหลดภาพพื้นหลัง
-        self.ground1_img = pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/พื้นหลังเกม-1.png").convert(), self.scale_factor)
-        self.ground2_img = pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/พื้นหลังเกม-2.png").convert(), self.scale_factor)
-        self.bullet_img = pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/กระสุน.png").convert_alpha(), 0.15)
+        self.ground1_img = pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/พื้นหลังเกม-1.png").convert(), self.scale_factor)
+        self.ground2_img = pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/พื้นหลังเกม-2.png").convert(), self.scale_factor)
+        self.bullet_img = pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/กระสุน.png").convert_alpha(), 0.15)
         
         # ตั้งค่าพื้นหลัง
         self.set_background()
@@ -151,13 +151,13 @@ class Game:
         for pipe in self.ob:
             pipe.update(dt)
 
-            # # ตรวจสอบการชนกับเสา
-            # if self.character.rect.colliderect(pipe.rect_down.inflate(-20, 0)):
-            #     if not self.disappear:  # ถ้าตัวละครไม่หายตัว
-            #         self.character_life -= 1  # ลดชีวิต 1 ครั้งเมื่อชนเสา
-            #         self.ob.remove(pipe)  # ลบเสาที่ถูกชนออกจากหน้าจอ
-            #         if self.character_life == 0:
-            #             self.out_game(False)  # ถ้าชีวิตหมดให้จบเกม
+            # ตรวจสอบการชนกับเสา
+            if self.character.rect.colliderect(pipe.rect_down.inflate(-20, 0)):
+                if not self.disappear:  # ถ้าตัวละครไม่หายตัว
+                    self.character_life -= 1  # ลดชีวิต 1 ครั้งเมื่อชนเสา
+                    self.ob.remove(pipe)  # ลบเสาที่ถูกชนออกจากหน้าจอ
+                    if self.character_life == 0:
+                        self.out_game(False)  # ถ้าชีวิตหมดให้จบเกม
 
             if self.character.shoot_bullet(self.is_bullet):
                 self.bulletX = 280  # ปรับให้กระสุนเคลื่อนที่ไปข้างหน้า (10 คือความเร็วของกระสุน)
@@ -219,7 +219,7 @@ class Game:
 
         # วาดไอเท็ม
         for item in self.item:
-            item.draw_coin(self.win)  # ไอเท็มและเหรียญใช้ฟังก์ชันเดียวกัน
+            item.draw_item(self.win)  # ไอเท็มและเหรียญใช้ฟังก์ชันเดียวกัน
 
         # วาดตัวละคร
         self.win.blit(self.character.image, self.character.rect)

@@ -14,8 +14,8 @@ class HowToPlay:
         self.win = pg.display.set_mode((self.width, self.height))
         pg.display.set_caption("Capybara Journey")  # ชื่อหน้าต่างเกม
 
-        self.ground_img = pg.transform.scale(pg.image.load("./รูปภาพและไฟล์ประกอบ/วิธีการเล่น.png").convert(), (self.width, self.height))
-        self.buttom_back = pg.image.load("game-Project/homepage/กลับ.png")
+        self.ground_img = pg.transform.scale(pg.image.load("รูปภาพและไฟล์ประกอบ/วิธีการเล่น.png").convert(), (self.width, self.height))
+        self.buttom_back = pg.image.load("homepage/กลับ.png")
         self.buttom_back = pg.transform.scale(self.buttom_back, (100, 50))
 
         # กำหนดตำแหน่งและขนาดของปุ่มกลับ

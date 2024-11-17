@@ -24,11 +24,11 @@ class character(pg.sprite.Sprite):
 
         # Load character images
         if character_type == 1:
-            self.img_list.append(pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/ตัวละคร-1.png").convert_alpha(), scale_factor))
+            self.img_list.append(pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/ตัวละคร-1.png").convert_alpha(), scale_factor))
         elif character_type == 2:
-            self.img_list.append(pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/ตัวละคร-3.png").convert_alpha(), scale_factor))
+            self.img_list.append(pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/ตัวละคร-3.png").convert_alpha(), scale_factor))
         elif character_type == 3:
-            self.img_list.append(pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/ตัวละคร-2.png").convert_alpha(), scale_factor))        
+            self.img_list.append(pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/ตัวละคร-2.png").convert_alpha(), scale_factor))        
         self.image_index = 0
         self.image = self.img_list[self.image_index]
         self.rect = self.image.get_rect(center=(200, 425))  # Initial position

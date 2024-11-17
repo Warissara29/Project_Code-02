@@ -3,11 +3,11 @@ import sys
 pg.init()
 
 class gameover:
-    def __init__(self, score, character_type):
+    def __init__(self, coin, character_type):
         # ตั้งค่าหน้าจอ
         self.width = 1200
         self.height = 555
-        self.score = score
+        self.coin = coin
         self.character_type = character_type
 
         self.win = pg.display.set_mode((self.width, self.height))
@@ -15,13 +15,13 @@ class gameover:
 
         # เช็ค character_type และแสดงข้อมูลต่างๆ
         if self.character_type == 1:
-           self.ground_img = pg.transform.scale(pg.image.load("./จบเกม/จบเกม1.png").convert(), (self.width, self.height))
+           self.ground_img = pg.transform.scale(pg.image.load("จบเกม/จบเกม1.png").convert(), (self.width, self.height))
         elif self.character_type == 2:
-           self.ground_img = pg.transform.scale(pg.image.load("./จบเกม/จบเกม2.png").convert(), (self.width, self.height))
+           self.ground_img = pg.transform.scale(pg.image.load("จบเกม/จบเกม2.png").convert(), (self.width, self.height))
         elif self.character_type == 3:
-          self.ground_img = pg.transform.scale(pg.image.load("./จบเกม/จบเกม3.png").convert(), (self.width, self.height))
+          self.ground_img = pg.transform.scale(pg.image.load("จบเกม/จบเกม3.png").convert(), (self.width, self.height))
 
-        self.buttom_back = pg.image.load("./รูปภาพและไฟล์ประกอบ/เริ่มเกมใหม่.png")
+        self.buttom_back = pg.image.load("รูปภาพและไฟล์ประกอบ/เริ่มเกมใหม่.png")
         self.buttom_back = pg.transform.scale(self.buttom_back, (170, 80))
 
         # กำหนดตำแหน่งและขนาดของปุ่มกลับ
@@ -56,7 +56,7 @@ class gameover:
         font = pg.font.Font(None, 100)  # ใช้ฟอนต์ขนาด 36
 
         # แสดงคะแนน
-        character_ability_score = font.render(f"{self.score}", True, (0, 0, 0))  # ข้อความสีดำ
+        character_ability_score = font.render(f"{self.coin}", True, (0, 0, 0))  # ข้อความสีดำ
 
         # กำหนดตำแหน่งของข้อความ (ตรงกลางแนวนอน)
         score_rect = character_ability_score.get_rect(centerx=830, centery=325)  # วางที่กลางหน้าจอ (ค่าห่างจากกลาง)

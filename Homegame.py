@@ -16,7 +16,7 @@ class Homegame:
         self.win = pg.display.set_mode((self.width, self.height))
         pg.display.set_caption("Capybara Journey")  # ชื่อหน้าต่างเกม
 
-        self.ground_img = pg.transform.scale(pg.image.load("./homepage/หน้าหลักเกม.png").convert(), (self.width, self.height))
+        self.ground_img = pg.transform.scale(pg.image.load("homepage/หน้าหลักเกม.png").convert(), (self.width, self.height))
         self.buttom_start = pg.image.load("homepage/เริ่มเกม.png")
         self.buttom_out = pg.image.load("homepage/ออกเกม.png")
 
@@ -26,7 +26,7 @@ class Homegame:
         self.choose_chracter = ChooseCharacter()
 
         # ตั้งค่าเพลงพื้นหลัง
-        pg.mixer.music.load("./รูปภาพและไฟล์ประกอบ/Cypybara.mp3")  # ระบุเส้นทางไปยังไฟล์เพลง
+        pg.mixer.music.load("รูปภาพและไฟล์ประกอบ/Cypybara.mp3")  # ระบุเส้นทางไปยังไฟล์เพลง
         pg.mixer.music.set_volume(0.5)  # ปรับระดับเสียง (ค่าระหว่าง 0.0 ถึง 1.0)
         pg.mixer.music.play(-1)  # เล่นเพลงซ้ำ (-1 ทำให้เพลงเล่นวน)
 
@@ -44,8 +44,6 @@ class Homegame:
                     mouse_pos = pg.mouse.get_pos()  # คืนค่าพิกัดของตำแหน่งเมาส์เมื่อคลิก
                     x, y = mouse_pos
                     
-                    # print(f"Mouse clicked at {mouse_pos}")  # แสดงพิกัดตำแหน่งเมาส์เมื่อคลิก
-
                     if 900 <= x <= 1100 and 250 <= y <= 350:
                         # self.start_game.sart_game()
                         self.choose_chracter.choose_character()

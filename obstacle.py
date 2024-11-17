@@ -2,9 +2,9 @@ import pygame as pg
 from random import randint  # เพิ่มการสุ่มความสูง
 
 class OB:
-    def __init__(self, scale_factor, move_speed, pipe_spacing=1500):
+    def __init__(self, scale_factor, move_speed, pipe_spacing):
         # โหลดภาพเสาด้านล่างและปรับขนาดตามขนาดที่ต้องการ (width, height)
-        self.img_down = pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/เสา.png").convert_alpha(), scale_factor)
+        self.img_down = pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/เสา.png").convert_alpha(), scale_factor)
         # ระยะห่างระหว่างเสาด้านล่างแต่ละอัน
 
         self.pipe_spacing = pipe_spacing

@@ -10,13 +10,13 @@ class ChooseCharacter:
         self.height = 555
         self.win = pg.display.set_mode((self.width, self.height))
         pg.display.set_caption("Capybara Journey")
-        self.ground_img = pg.transform.scale(pg.image.load("./homepage/เลือกตัวละคร.png").convert(), (self.width, self.height))
-        self.character1 = pg.image.load("./รูปภาพและไฟล์ประกอบ/ตัวละคร-1.png")
-        self.character2 = pg.image.load("./รูปภาพและไฟล์ประกอบ/ตัวละคร-2.png")
-        self.character3 = pg.image.load("./รูปภาพและไฟล์ประกอบ/ตัวละคร-3.png")
-        self.describe = pg.image.load("./รูปภาพและไฟล์ประกอบ/ปุ่มคำอธิบาย.png")
-        self.HowToPlay = pg.image.load("./รูปภาพและไฟล์ประกอบ/ปุ่มวิธีการเล่นเกม.png")
-        self.back = pg.image.load("./homepage/กลับ.png")
+        self.ground_img = pg.transform.scale(pg.image.load("homepage/เลือกตัวละคร.png").convert(), (self.width, self.height))
+        self.character1 = pg.image.load("รูปภาพและไฟล์ประกอบ/ตัวละคร-1.png")
+        self.character2 = pg.image.load("รูปภาพและไฟล์ประกอบ/ตัวละคร-2.png")
+        self.character3 = pg.image.load("รูปภาพและไฟล์ประกอบ/ตัวละคร-3.png")
+        self.describe = pg.image.load("รูปภาพและไฟล์ประกอบ/ปุ่มคำอธิบาย.png")
+        self.HowToPlay = pg.image.load("รูปภาพและไฟล์ประกอบ/ปุ่มวิธีการเล่นเกม.png")
+        self.back = pg.image.load("homepage/กลับ.png")
 
         self.setsize_character()  # เรียกเพื่อปรับขนาดของตัวละคร
 

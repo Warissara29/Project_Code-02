@@ -2,9 +2,9 @@ import pygame as pg
 from random import randint  # เพิ่มการสุ่มความสูง
 
 class Coin:
-    def __init__(self, scale_factor, move_speed, pipe_spacing=1500):
+    def __init__(self, scale_factor, move_speed, pipe_spacing):
         # โหลดภาพเหรียญและปรับขนาดตามขนาดที่ต้องการ (width, height)
-        self.img = pg.transform.scale_by(pg.image.load("./รูปภาพและไฟล์ประกอบ/เหรียญ.png").convert_alpha(), scale_factor)
+        self.img = pg.transform.scale_by(pg.image.load("รูปภาพและไฟล์ประกอบ/เหรียญ.png").convert_alpha(), scale_factor)
         
         self.pipe_spacing = pipe_spacing  # ระยะห่างระหว่างเหรียญ
 
@@ -26,9 +26,3 @@ class Coin:
     def update(self, dt):
         # อัปเดตตำแหน่งของเหรียญ (เลื่อนไปทางซ้าย)
         self.rect.x -= int(self.move_speed * dt)
-
-# โค้ดส่วนที่เช็คการชนระหว่างตัวละครกับเหรียญ
-def check_collision_with_coin(character, coin):
-    if character.rect.colliderect(coin.rect):
-        return True  # ถ้าเกิดการชน แสดงว่าเก็บเหรียญได้
-    return False
