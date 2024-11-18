@@ -7,7 +7,7 @@ from obstacle import OB  # Import OB class for obstacles
 from coin import Coin  # Import Coin class for coins
 from Item import Item  # Import Coin class for coins
 import random  # Import random for generating random obstacle heights
-import time
+import time 
 
 pg.init()
 
@@ -19,7 +19,7 @@ class Game:
         self.scale_factor_ob = 0.4
         self.scale_factor_coin = 0.1  # เพิ่มขนาดของเหรียญ
         self.scale_factor_item = 0.2  # เพิ่มขนาดของไอเท้ม
-        self.scroll_speed = 5
+        self.scroll_speed = 5 #ความเร้ซของพื้นนหลัง
 
         self.win = pg.display.set_mode((self.width, self.height))
         pg.display.set_caption("Capybara Journey")
