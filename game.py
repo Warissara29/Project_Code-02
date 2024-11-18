@@ -227,21 +227,21 @@ class Game:
         # วาดคะแนน
         coin_text = self.font.render(f'  Coins: {self.coin_count}', True, (0, 0, 0))
         coin_bg = pygame.Surface((coin_text.get_width() + 10, coin_text.get_height() + 10))  # ขนาดพื้นหลัง
-        coin_bg.fill((255, 255, 255))  # สีพื้นหลัง (สีขาว)
+        coin_bg.fill((251,252,222))  # สีพื้นหลัง (สีขาว)
         self.win.blit(coin_bg, (20 - 5, 10 - 5))  # วางพื้นหลังให้เหมาะสม
         self.win.blit(coin_text, (10, 10))  # วางข้อความ
 
         # วาดจำนวนไอเท็ม
         item_text = self.font.render(f'  Item: {self.item_count}/5', True, (0, 0, 0))
         item_bg = pygame.Surface((item_text.get_width() + 10, item_text.get_height() + 10))  # ขนาดพื้นหลัง
-        item_bg.fill((255, 255, 255))  # สีพื้นหลัง (สีขาว)
+        item_bg.fill((251,252,222))  # สีพื้นหลัง (สีขาว)
         self.win.blit(item_bg, (20 - 5, 50 - 5))  # วางพื้นหลังให้เหมาะสม
         self.win.blit(item_text, (10, 50))  # วางข้อความ
 
         # วาดจำนวนชีวิต
         lie_text = self.font.render(f'  Character life: {self.character_life}/5', True, (0, 0, 0))
         lie_bg = pygame.Surface((lie_text.get_width() + 10, lie_text.get_height() + 10))  # ขนาดพื้นหลัง
-        lie_bg.fill((255, 255, 255))  # สีพื้นหลัง (สีขาว)
+        lie_bg.fill((251,252,222))  # สีพื้นหลัง (สีขาว)
         self.win.blit(lie_bg, (20 - 5, 90 - 5))  # วางพื้นหลังให้เหมาะสม
         self.win.blit(lie_text, (10, 90))  # วางข้อความ
 
